@@ -8,7 +8,7 @@ function Header() {
   return (
     <Container>
       <Content>
-        <img src={LogoMarvel} alt="logo-marvel" loading="lazy" />
+        <img src={LogoMarvel} alt="logo-marvel" />
         <nav className="menu">
           <ul>
             <li>

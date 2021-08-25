@@ -5,7 +5,37 @@ export const Container = styled.div`
   height: 100%;
 `;
 export const Content = styled.div`
-  max-width: 1024px;
-  margin: 0 auto;
   height: 100%;
+  box-sizing: border-box;
+  .slide-show {
+    max-width: 1024px;
+    margin: 0 auto;
+    height: 600px;
+    margin-bottom: 50px;
+  }
+  .characters {
+    padding-bottom: 50px;
+    .title-section {
+      font-size: 60px;
+      color: #fff;
+      margin-left: 50px;
+    }
+    .allCharactersResponse {
+      display: flex;
+      overflow: auto;
+      margin: 0 50px 0;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      > img {
+        max-width: 200px;
+        width: auto;
+        height: auto;
+        background-size: cover;
+        & + img {
+          margin-left: 100px;
+        }
+      }
+    }
+  }
 `;

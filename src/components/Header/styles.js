@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 160px;
+  margin-top: 44px;
 `;
 
 export const Content = styled.div`
@@ -13,7 +13,9 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 44px;
+  > nav {
+    margin-top: 55px;
+  }
   > nav,
   ul {
     list-style: none;
