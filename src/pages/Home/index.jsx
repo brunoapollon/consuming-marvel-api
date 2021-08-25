@@ -6,8 +6,6 @@ import api from "../../services/api";
 import Header from "../../components/Header";
 import SliderImages from "../../components/SliderImages";
 
-import bannerCharacters from "../../assets/bannerCharacters.png";
-
 import { Container, Content } from "./styles";
 
 function Home() {

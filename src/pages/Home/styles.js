@@ -16,6 +16,7 @@ export const Content = styled.div`
   .characters {
     padding-bottom: 50px;
     .title-section {
+      font-family: "Montserrat", sans-serif;
       font-size: 60px;
       color: #fff;
       margin-left: 50px;
@@ -32,6 +33,7 @@ export const Content = styled.div`
         width: auto;
         height: auto;
         background-size: cover;
+        -webkit-mask-image: linear-gradient(to top, transparent 0, black 50%);
         & + img {
           margin-left: 100px;
         }

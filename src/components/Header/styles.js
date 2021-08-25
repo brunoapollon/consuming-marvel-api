@@ -24,6 +24,7 @@ export const Content = styled.div`
       > a {
         color: #fff;
         text-decoration: none;
+        font-family: "Montserrat", sans-serif;
         font-size: 24px;
         padding: 5px;
         border-radius: 25px;
