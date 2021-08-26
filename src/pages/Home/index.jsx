@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
+import ReactLoading from "react-loading";
 
 import api from "../../services/api";
 
@@ -11,6 +12,7 @@ import { Container, Content } from "./styles";
 
 function Home() {
   const [imagesCharacters, setImagesCharacters] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const timestamp = Number(new Date());
     const hash = CryptoJS.MD5(
@@ -34,81 +36,93 @@ function Home() {
           .map((a) => a.value);
         setImagesCharacters(arraySort);
       });
+    setTimeout(() => [setLoading(false)], 3000);
   }, []);
   return (
     <Container>
-      <Content>
-        <Header />
-        <div className="slide-show">
-          {imagesCharacters.length !== 0 && (
-            <SliderImages>
-              <div class="container-slider">
-                <input type="radio" name="slider" id="item-1" checked />
-                <input type="radio" name="slider" id="item-2" />
-                <input type="radio" name="slider" id="item-3" />
-                <div class="cards">
-                  <label class="card" for="item-1" id="song-1">
-                    <img
-                      src={
-                        imagesCharacters[0].thumbnail.path +
-                        "." +
-                        imagesCharacters[0].thumbnail.extension
-                      }
-                      alt="song"
-                    />
-                  </label>
-                  <label class="card" for="item-2" id="song-2">
-                    <img
-                      src={
-                        imagesCharacters[1].thumbnail.path +
-                        "." +
-                        imagesCharacters[1].thumbnail.extension
-                      }
-                      alt="song"
-                    />
-                  </label>
-                  <label class="card" for="item-3" id="song-3">
-                    <img
-                      src={
-                        imagesCharacters[2].thumbnail.path +
-                        "." +
-                        imagesCharacters[2].thumbnail.extension
-                      }
-                      alt="song"
-                    />
-                  </label>
-                </div>
-                <div className="dots">
-                  <div className="dot-item-1" />
-                  <div className="dot-item-2" />
-                  <div className="dot-item-3" />
-                </div>
-              </div>
-            </SliderImages>
-          )}
+      <Header />
+      {loading ? (
+        <div className="loading">
+          <ReactLoading
+            type="spin"
+            color="#ed1d24"
+            height={"20%"}
+            width={"20%"}
+          />
         </div>
-        <section className="characters">
-          <h1 className="title-section">CHARACTERS</h1>
-          <div className="allCharactersResponse dragscroll">
-            {imagesCharacters.length !== 0 &&
-              imagesCharacters.map((characters) => {
-                return (
-                  <div className="img-character">
-                    <img
-                      src={
-                        characters.thumbnail.path +
-                        "." +
-                        characters.thumbnail.extension
-                      }
-                      alt="song"
-                    />
+      ) : (
+        <Content>
+          <div className="slide-show">
+            {imagesCharacters.length !== 0 && (
+              <SliderImages>
+                <div class="container-slider">
+                  <input type="radio" name="slider" id="item-1" checked />
+                  <input type="radio" name="slider" id="item-2" />
+                  <input type="radio" name="slider" id="item-3" />
+                  <div class="cards">
+                    <label class="card" for="item-1" id="song-1">
+                      <img
+                        src={
+                          imagesCharacters[0].thumbnail.path +
+                          "." +
+                          imagesCharacters[0].thumbnail.extension
+                        }
+                        alt="song"
+                      />
+                    </label>
+                    <label class="card" for="item-2" id="song-2">
+                      <img
+                        src={
+                          imagesCharacters[1].thumbnail.path +
+                          "." +
+                          imagesCharacters[1].thumbnail.extension
+                        }
+                        alt="song"
+                      />
+                    </label>
+                    <label class="card" for="item-3" id="song-3">
+                      <img
+                        src={
+                          imagesCharacters[2].thumbnail.path +
+                          "." +
+                          imagesCharacters[2].thumbnail.extension
+                        }
+                        alt="song"
+                      />
+                    </label>
                   </div>
-                );
-              })}
+                  <div className="dots">
+                    <div className="dot-item-1" />
+                    <div className="dot-item-2" />
+                    <div className="dot-item-3" />
+                  </div>
+                </div>
+              </SliderImages>
+            )}
           </div>
-        </section>
-      </Content>
-      <Footer />
+          <section className="characters dragscroll">
+            <h1 className="title-section">CHARACTERS</h1>
+            <div className="allCharactersResponse dragscroll">
+              {imagesCharacters.length !== 0 &&
+                imagesCharacters.map((characters) => {
+                  return (
+                    <div className="img-character">
+                      <img
+                        src={
+                          characters.thumbnail.path +
+                          "." +
+                          characters.thumbnail.extension
+                        }
+                        alt="song"
+                      />
+                    </div>
+                  );
+                })}
+            </div>
+          </section>
+        </Content>
+      )}
+      {!loading && <Footer />}
     </Container>
   );
 }

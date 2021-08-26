@@ -3,6 +3,13 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   height: 100%;
+  .loading {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 export const Content = styled.div`
   height: 100%;
