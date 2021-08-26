@@ -10,7 +10,7 @@ export const Content = styled.div`
   .slide-show {
     max-width: 1024px;
     margin: 0 auto;
-    height: 600px;
+    height: 280px;
     margin-bottom: 50px;
   }
   .characters {
@@ -28,14 +28,15 @@ export const Content = styled.div`
       &::-webkit-scrollbar {
         display: none;
       }
-      > img {
-        max-width: 200px;
-        width: auto;
-        height: auto;
-        background-size: cover;
-        -webkit-mask-image: linear-gradient(to top, transparent 0, black 50%);
-        & + img {
-          margin-left: 100px;
+      .img-character {
+        height: 300px;
+        > img {
+          width: 200px;
+          height: 100%;
+          -webkit-mask-image: linear-gradient(to top, transparent 0, black 50%);
+        }
+        & + div {
+          margin-left: 50px;
         }
       }
     }

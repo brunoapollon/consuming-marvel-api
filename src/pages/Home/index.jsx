@@ -5,6 +5,7 @@ import api from "../../services/api";
 
 import Header from "../../components/Header";
 import SliderImages from "../../components/SliderImages";
+import Footer from "../../components/Footer";
 
 import { Container, Content } from "./styles";
 
@@ -92,19 +93,22 @@ function Home() {
             {imagesCharacters.length !== 0 &&
               imagesCharacters.map((characters) => {
                 return (
-                  <img
-                    src={
-                      characters.thumbnail.path +
-                      "." +
-                      characters.thumbnail.extension
-                    }
-                    alt="song"
-                  />
+                  <div className="img-character">
+                    <img
+                      src={
+                        characters.thumbnail.path +
+                        "." +
+                        characters.thumbnail.extension
+                      }
+                      alt="song"
+                    />
+                  </div>
                 );
               })}
           </div>
         </section>
       </Content>
+      <Footer />
     </Container>
   );
 }
