@@ -10,15 +10,8 @@ export const Content = styled.div`
   .slide-show {
     max-width: 1024px;
     margin: 0 auto;
-    height: 280px;
+    height: 400px;
     margin-bottom: 50px;
-  }
-  .loading {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   .loading {
     display: flex;

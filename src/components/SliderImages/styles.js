@@ -43,18 +43,6 @@ export const Container = styled.div`
     border-radius: 10px;
     object-fit: cover;
   }
-  .dots {
-    display: flex;
-    > div {
-      width: 17px;
-      height: 17px;
-      background: #c4c4c4;
-      border-radius: 50%;
-      & + div {
-        margin-left: 20px;
-      }
-    }
-  }
   #item-1:checked ~ .cards #song-3,
   #item-2:checked ~ .cards #song-1,
   #item-3:checked ~ .cards #song-2 {
