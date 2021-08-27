@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
 import ReactLoading from "react-loading";
-import ScrollContainer from "react-indiana-drag-scroll";
 
 import api from "../../services/api";
 
 import Header from "../../components/Header";
 import SliderImages from "../../components/SliderImages";
 import Footer from "../../components/Footer";
+import SectionImages from "../../components/SectionImages";
 
 import { Container, Content } from "./styles";
 
@@ -126,46 +126,8 @@ function Home() {
                 </SliderImages>
               )}
             </div>
-            <section className="characters">
-              <h1 className="title-section">CHARACTERS</h1>
-              <ScrollContainer className="allCharactersResponse scroll-container">
-                {imagesCharacters.length !== 0 &&
-                  imagesCharacters.map((characters) => {
-                    return (
-                      <div className="img-character">
-                        <img
-                          src={
-                            characters.thumbnail.path +
-                            "." +
-                            characters.thumbnail.extension
-                          }
-                          alt="song"
-                        />
-                      </div>
-                    );
-                  })}
-              </ScrollContainer>
-            </section>
-            <section className="characters">
-              <h1 className="title-section">COMICS</h1>
-              <ScrollContainer className="allCharactersResponse scroll-container">
-                {imagesComics.length !== 0 &&
-                  imagesComics.map((comics) => {
-                    return (
-                      <div className="img-character">
-                        <img
-                          src={
-                            comics.thumbnail.path +
-                            "." +
-                            comics.thumbnail.extension
-                          }
-                          alt="song"
-                        />
-                      </div>
-                    );
-                  })}
-              </ScrollContainer>
-            </section>
+            <SectionImages data={imagesCharacters} title="CHARACTERS" />
+            <SectionImages data={imagesComics} title="COMICS" />
           </>
         )}
         {!loading && <Footer />}
