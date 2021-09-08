@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
+  margin-bottom: 200px;
   h1 {
     font-family: "Montserrat", sans-serif;
     font-size: 60px;

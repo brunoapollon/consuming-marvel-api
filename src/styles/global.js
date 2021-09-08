@@ -2,20 +2,18 @@ import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
   html{
-    height: 100%;
-    width: 100%;
+    height: 100vh;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
   }
   body{
     background-color:#171616;
-    overflow: auto;
     margin: 0;
     padding: 0;
     height: 100%;
-    width: 100%;
     &::-webkit-scrollbar {
-      width: 5px;
+      width: 10px;
     }
 
     &::-webkit-scrollbar-track {
@@ -24,6 +22,7 @@ export default createGlobalStyle`
 
     &::-webkit-scrollbar-thumb {
       background-color: #ed1d24;
+      border: 1px solid #fff;
       border-radius: 10px;
     }
   }
