@@ -104,50 +104,9 @@ function Home() {
           <>
             <div className="slide-show">
               {characters.length !== 0 && (
-                <SliderImages>
-                  <div class="container-slider">
-                    <input type="radio" name="slider" id="item-1" checked />
-                    <input type="radio" name="slider" id="item-2" />
-                    <input type="radio" name="slider" id="item-3" />
-                    <div class="cards">
-                      <label class="card" for="item-1" id="song-1">
-                        <img
-                          src={
-                            characters[0].thumbnail.path +
-                            "." +
-                            characters[0].thumbnail.extension
-                          }
-                          alt="song"
-                        />
-                      </label>
-                      <label class="card" for="item-2" id="song-2">
-                        <img
-                          src={
-                            characters[1].thumbnail.path +
-                            "." +
-                            characters[1].thumbnail.extension
-                          }
-                          alt="song"
-                        />
-                      </label>
-                      <label class="card" for="item-3" id="song-3">
-                        <img
-                          src={
-                            characters[2].thumbnail.path +
-                            "." +
-                            characters[2].thumbnail.extension
-                          }
-                          alt="song"
-                        />
-                      </label>
-                    </div>
-                    <div className="dots">
-                      <div className="dot-item-1" />
-                      <div className="dot-item-2" />
-                      <div className="dot-item-3" />
-                    </div>
-                  </div>
-                </SliderImages>
+                <SliderImages
+                  pages={[characters[0], characters[1], characters[2]]}
+                />
               )}
             </div>
             <SectionImages data={characters} title="CHARACTERS" />
