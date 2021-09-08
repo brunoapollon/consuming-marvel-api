@@ -85,6 +85,7 @@ function Home() {
       setTimeout(() => [setLoading(false)], 2000);
     })();
   }, []);
+  console.log(characters);
   return (
     <Container>
       <Content>
@@ -150,8 +151,8 @@ function Home() {
               )}
             </div>
             <SectionImages data={characters} title="CHARACTERS" />
-            <SectionImages data={comics} title="COMICS" comics />
             <SectionEvents data={events} title="EVENTS" />
+            <SectionImages data={comics} title="COMICS" comics />
           </>
         )}
         {!loading && <Footer />}
