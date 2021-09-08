@@ -10,7 +10,7 @@ export const Content = styled.div`
   .slide-show {
     max-width: 1024px;
     margin: 0 auto;
-    height: 500px;
+    height: 600px;
     margin-bottom: 200px;
   }
   .loading {

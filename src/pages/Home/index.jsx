@@ -103,9 +103,15 @@ function Home() {
         {!loading && (
           <>
             <div className="slide-show">
-              {characters.length !== 0 && (
+              {characters.length !== 0 && events.length !== 0 && (
                 <SliderImages
-                  pages={[characters[0], characters[1], characters[2]]}
+                  pages={[
+                    characters[0],
+                    events[1],
+                    events[2],
+                    events[3],
+                    characters[4],
+                  ]}
                 />
               )}
             </div>
