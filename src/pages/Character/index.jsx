@@ -6,6 +6,7 @@ import { Container, Content } from "./styles";
 import api from "../../services/api";
 
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 function Character(props) {
   const [character, setCharacter] = useState();
@@ -41,17 +42,25 @@ function Character(props) {
           {character && (
             <>
               <h1>Hi, I'm {character.name}</h1>
-              <img
-                src={
-                  character.thumbnail.path + "." + character.thumbnail.extension
-                }
-                alt="character"
-              />
-              <p>{character.description}</p>
+              <div className="about-character">
+                <img
+                  src={
+                    character.thumbnail.path +
+                    "." +
+                    character.thumbnail.extension
+                  }
+                  alt="character"
+                />
+                <section className="description">
+                  <h1>DESCRIPTION</h1>
+                  <p>{character.description}</p>
+                </section>
+              </div>
             </>
           )}
         </section>
       </Content>
+      <Footer />
     </Container>
   );
 }

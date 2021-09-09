@@ -8,6 +8,10 @@ export const Content = styled.div`
   width: 1024px;
   height: 100%;
   margin: 0 auto;
+  h1 {
+    font-size: 72px;
+    color: #fff;
+  }
   .title-page {
     max-width: 790px;
     height: 135px;
@@ -19,6 +23,25 @@ export const Content = styled.div`
     border-radius: 20px;
     > h1 {
       font-size: 100px;
+    }
+  }
+  .about-character {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 200px;
+    > img {
+      width: 500px;
+      height: 400px;
+      object-fit: cover;
+      margin-right: 30px;
+      border-radius: 50%;
+    }
+    h1 {
+      margin: 0;
+    }
+    .description {
+      font-size: 24px;
       color: #fff;
     }
   }
