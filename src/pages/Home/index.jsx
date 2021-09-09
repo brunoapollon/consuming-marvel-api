@@ -17,6 +17,7 @@ function Home() {
   const [comics, setComics] = useState([]);
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     (function requestApi() {
       const timestamp = Number(new Date());
@@ -25,6 +26,7 @@ function Home() {
           process.env.REACT_APP_KEY_PRIVATE_MARVEL_API +
           process.env.REACT_APP_KEY_PUBLIC_MARVEL_API
       );
+
       api
         .get(
           `characters?ts=${timestamp}&orderBy=name&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
@@ -44,6 +46,7 @@ function Home() {
             .map((a) => a.value);
           setCharacters(arraySort);
         });
+
       api
         .get(
           `comics?ts=${timestamp}&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
@@ -63,6 +66,7 @@ function Home() {
             .map((a) => a.value);
           setComics(arraySort);
         });
+
       api
         .get(
           `events?ts=${timestamp}&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
@@ -76,16 +80,18 @@ function Home() {
               characters.thumbnail.extension === "jpg"
             );
           });
+
           const arraySort = arrayFilter
             .map((a) => ({ sort: Math.random(), value: a }))
             .sort((a, b) => a.sort - b.sort)
             .map((a) => a.value);
           setEvents(arraySort);
         });
+
       setTimeout(() => [setLoading(false)], 2000);
     })();
   }, []);
-  console.log(characters);
+
   return (
     <Container>
       <Content>

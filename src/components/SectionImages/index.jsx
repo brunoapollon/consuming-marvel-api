@@ -17,6 +17,7 @@ function SectionImages(props) {
               <CardImage
                 img={image.thumbnail.path + "." + image.thumbnail.extension}
                 name={image.name}
+                idCharacter={image.id}
                 {...props}
               />
             );
