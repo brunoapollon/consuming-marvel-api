@@ -45,4 +45,13 @@ export const Content = styled.div`
       color: #fff;
     }
   }
+  .appearances {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    > h1 {
+      font-size: 60px;
+    }
+  }
 `;

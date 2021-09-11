@@ -7,9 +7,14 @@ import api from "../../services/api";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import CardAppearances from "../../components/CardAppearances";
 
 function Character(props) {
   const [character, setCharacter] = useState();
+  const [comics, setComics] = useState();
+  const [events, setEvents] = useState();
+  const [series, setSeries] = useState();
+  const [stories, setStories] = useState();
 
   const { character_id } = props.match.params;
 
@@ -27,10 +32,13 @@ function Character(props) {
         )
         .then((promise) => {
           setCharacter(promise.data.data.results[0]);
+          setComics(promise.data.data.results[0].comics.items);
+          setEvents(promise.data.data.results[0].events.items);
+          setSeries(promise.data.data.results[0].series.items);
+          setStories(promise.data.data.results[0].stories.items);
         });
     })();
   }, [character_id]);
-  console.log(character);
   return (
     <Container>
       <Content>
@@ -58,6 +66,10 @@ function Character(props) {
               </div>
             </>
           )}
+        </section>
+        <section className="appearances">
+          <h1>APPEARANCES</h1>
+          {comics && events && series && stories && <></>}
         </section>
       </Content>
       <Footer />

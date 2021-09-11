@@ -26,7 +26,7 @@ export default createGlobalStyle`
       border-radius: 10px;
     }
   }
-  h1,h2,h3,h4,h5, span, input, a, button{
-    font-family: 'Roboto', serif;
+  h1,h2,h3,h4,h5, p, span, input, a, button{
+    font-family: 'Montserrat', serif;
   }
 `;
