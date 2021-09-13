@@ -25,5 +25,5 @@
   const urlSplit = currentUrl.split("/");
   const tagMenu = urlSplit[urlSplit.length - 1];
   const menuSelected = document.querySelector(`.menu a[href='/${tagMenu}']`);
-  menuSelected.style.background = "#ed1d24";
+  if (menuSelected) menuSelected.style.background = "#ed1d24";
 </script>

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: ${(props) => (props.event ? "680px" : "300px")};
-  height: ${(props) => (props.event ? "600px" : "400px")};
+  width: ${(props) => (props.plus ? "680px" : "300px")};
+  height: ${(props) => (props.plus ? "600px" : "400px")};
   border-radius: 10px;
   background: #4f4a4a;
   padding: 30px 40px 0;
@@ -29,7 +29,8 @@ export const Content = styled.div`
     }
   }
   img {
-    width: ${(props) => (props.event ? "580px" : "200px")};
-    height: ${(props) => (props.event ? "500px" : "300px")};
+    width: ${(props) => (props.plus ? "580px" : "200px")};
+    height: ${(props) => (props.plus ? "500px" : "300px")};
+    object-fit: cover;
   }
 `;

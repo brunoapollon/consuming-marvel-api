@@ -9,6 +9,13 @@ export const Content = styled.div`
   height: 100%;
   margin: 0 auto;
   overflow: hidden;
+  .loading {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   h1 {
     font-size: 72px;
     color: #fff;

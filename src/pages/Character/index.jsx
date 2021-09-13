@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
+import ReactLoading from "react-loading";
 
 import { Container, Content } from "./styles";
 
@@ -15,6 +16,7 @@ function Character(props) {
   const [events, setEvents] = useState();
   const [series, setSeries] = useState();
   const [stories, setStories] = useState();
+  const [loading, setLoading] = useState(true);
 
   const { character_id } = props.match.params;
 
@@ -39,47 +41,71 @@ function Character(props) {
         });
     })();
   }, [character_id]);
-
+  setInterval(() => {
+    setLoading(false);
+  }, 5000);
   return (
     <Container>
       <Content>
         <Header />
-        <div className="title-page">
-          <h1>CHARACTER</h1>
-        </div>
-        <section className="card-character">
-          {character && (
-            <>
-              <h1>Hi, I'm {character.name}</h1>
-              <div className="about-character">
-                <img
-                  src={
-                    character.thumbnail.path +
-                    "." +
-                    character.thumbnail.extension
-                  }
-                  alt="character"
-                />
-                <section className="description">
-                  <h1>DESCRIPTION</h1>
-                  <p>{character.description}</p>
-                </section>
-              </div>
-            </>
-          )}
-        </section>
-        <section className="pops-up">
-          <h1>POPS UP</h1>
-          {comics && events && series && stories && (
-            <>
-              <SectionAppearances data={comics} title="in the comics" />
-              <SectionAppearances data={events} title="in the events" event />
-              <SectionAppearances data={series} title="in the events" event />
-            </>
-          )}
-        </section>
+        {!loading && (
+          <>
+            <div className="title-page">
+              <h1>CHARACTER</h1>
+            </div>
+            <section className="card-character">
+              {character && (
+                <>
+                  <h1>Hi, I'm {character.name}</h1>
+                  <div className="about-character">
+                    <img
+                      src={
+                        character.thumbnail.path +
+                        "." +
+                        character.thumbnail.extension
+                      }
+                      alt="character"
+                    />
+                    <section className="description">
+                      <h1>DESCRIPTION</h1>
+                      <p>{character.description}</p>
+                    </section>
+                  </div>
+                </>
+              )}
+            </section>
+            <section className="pops-up">
+              <h1>POPS UP</h1>
+              {comics && events && series && stories && (
+                <>
+                  <SectionAppearances data={comics} title="in the comics" />
+                  <SectionAppearances
+                    data={events}
+                    title="in the events"
+                    plus
+                  />
+                  <SectionAppearances
+                    data={series}
+                    title="in the stories"
+                    plus
+                  />
+                </>
+              )}
+            </section>
+          </>
+        )}
+        {loading && (
+          <div className="loading">
+            <ReactLoading
+              type="spin"
+              color="#ed1d24"
+              height={"20%"}
+              width={"20%"}
+            />
+          </div>
+        )}
       </Content>
-      <Footer />
+      {!loading && <Footer />}
     </Container>
   );
 }

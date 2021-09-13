@@ -27,22 +27,24 @@ function CardAppearances(props) {
           promise.data.data.results[0].thumbnail.path +
           "." +
           promise.data.data.results[0].thumbnail.extension;
-        setUrlIMG(responseImageURL);
+        const urlImage = promise.data.data.results[0].thumbnail.path.split("/");
+        const nameImage = urlImage[urlImage.length - 1];
+        if (nameImage !== "image_not_available") setUrlIMG(responseImageURL);
       });
     })();
   }, []);
-  return (
+  return urlIMG && name ? (
     <Container {...props}>
       <Content {...props}>
         <div className="bulr-backgroundImage" />
-        {urlIMG && name && (
-          <div className="thumb-img">
-            <img src={urlIMG} alt="thumb-img" />
-            <span>{name}</span>
-          </div>
-        )}
+        <div className="thumb-img">
+          <img src={urlIMG} alt="thumb-img" />
+          <span>{name}</span>
+        </div>
       </Content>
     </Container>
+  ) : (
+    ""
   );
 }
 
