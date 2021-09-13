@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 100%;
   overflow: hidden;
   margin-bottom: 200px;
+  box-sizing: border-box;
   h1 {
     font-family: "Montserrat", sans-serif;
     font-size: 60px;

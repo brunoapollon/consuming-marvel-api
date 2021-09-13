@@ -4,6 +4,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  box-sizing: border-box;
   img {
     width: ${(props) => (props.comics ? "200px" : "400px")};
     height: 100%;

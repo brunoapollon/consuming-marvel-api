@@ -1,38 +1,35 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 300px;
-  height: 400px;
-  position: relative;
-  .bulr-backgroundImage {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    border-radius: 10px;
-    background: #4f4a4a;
-    filter: blur(5px);
-    position: absolute;
+  width: ${(props) => (props.event ? "680px" : "300px")};
+  height: ${(props) => (props.event ? "600px" : "400px")};
+  border-radius: 10px;
+  background: #4f4a4a;
+  padding: 30px 40px 0;
+  box-sizing: border-box;
+  & + div {
+    margin-left: 100px;
   }
 `;
 
 export const Content = styled.div`
+  width: 100%;
+  height: 100%;
   > div {
-    position: absolute;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     > span {
-      margin-top: 20px;
+      margin-top: 10px;
       color: #fff;
       font-size: 12x;
       font-weight: 300;
     }
   }
   img {
-    margin-top: 30px;
-    width: 200px;
-    height: 300px;
+    width: ${(props) => (props.event ? "580px" : "200px")};
+    height: ${(props) => (props.event ? "500px" : "300px")};
   }
 `;

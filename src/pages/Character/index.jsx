@@ -7,7 +7,7 @@ import api from "../../services/api";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import CardAppearances from "../../components/CardAppearances";
+import SectionAppearances from "../../components/SectionAppearances";
 
 function Character(props) {
   const [character, setCharacter] = useState();
@@ -19,14 +19,14 @@ function Character(props) {
   const { character_id } = props.match.params;
 
   useEffect(() => {
-    (function requestApi() {
+    (async function requestApi() {
       const timestamp = Number(new Date());
       const hash = CryptoJS.MD5(
         timestamp +
           process.env.REACT_APP_KEY_PRIVATE_MARVEL_API +
           process.env.REACT_APP_KEY_PUBLIC_MARVEL_API
       );
-      api
+      await api
         .get(
           `characters/${character_id}?ts=${timestamp}&orderBy=name&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
         )
@@ -39,6 +39,7 @@ function Character(props) {
         });
     })();
   }, [character_id]);
+
   return (
     <Container>
       <Content>
@@ -67,9 +68,15 @@ function Character(props) {
             </>
           )}
         </section>
-        <section className="appearances">
-          <h1>APPEARANCES</h1>
-          {comics && events && series && stories && <></>}
+        <section className="pops-up">
+          <h1>POPS UP</h1>
+          {comics && events && series && stories && (
+            <>
+              <SectionAppearances data={comics} title="in the comics" />
+              <SectionAppearances data={events} title="in the events" event />
+              <SectionAppearances data={series} title="in the events" event />
+            </>
+          )}
         </section>
       </Content>
       <Footer />

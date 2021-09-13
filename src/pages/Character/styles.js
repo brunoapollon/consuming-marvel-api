@@ -8,6 +8,7 @@ export const Content = styled.div`
   width: 1024px;
   height: 100%;
   margin: 0 auto;
+  overflow: hidden;
   h1 {
     font-size: 72px;
     color: #fff;
@@ -45,11 +46,12 @@ export const Content = styled.div`
       color: #fff;
     }
   }
-  .appearances {
+  .pops-up {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 200px;
     > h1 {
       font-size: 60px;
     }

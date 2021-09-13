@@ -19,7 +19,7 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    (function requestApi() {
+    (async function requestApi() {
       const timestamp = Number(new Date());
       const hash = CryptoJS.MD5(
         timestamp +
@@ -27,7 +27,7 @@ function Home() {
           process.env.REACT_APP_KEY_PUBLIC_MARVEL_API
       );
 
-      api
+      await api
         .get(
           `characters?ts=${timestamp}&orderBy=name&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
         )
@@ -47,7 +47,7 @@ function Home() {
           setCharacters(arraySort);
         });
 
-      api
+      await api
         .get(
           `comics?ts=${timestamp}&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
         )
@@ -67,7 +67,7 @@ function Home() {
           setComics(arraySort);
         });
 
-      api
+      await api
         .get(
           `events?ts=${timestamp}&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
         )

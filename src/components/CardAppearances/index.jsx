@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import CryptoJS from "crypto-js";
 
 import { Container, Content } from "./styles";
 
-import api from "../../services/api";
-
 function CardAppearances(props) {
-  let { resourceURI, name } = props;
+  const { resourceURI, name } = props;
+
+  const refURL = useRef(resourceURI);
 
   const [urlIMG, setUrlIMG] = useState();
 
@@ -18,10 +18,10 @@ function CardAppearances(props) {
         process.env.REACT_APP_KEY_PRIVATE_MARVEL_API +
         process.env.REACT_APP_KEY_PUBLIC_MARVEL_API
     );
-    resourceURI += `?ts=${timestamp}&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`;
-    (function requestApi() {
-      axios({
-        baseURL: resourceURI,
+    refURL.current += `?ts=${timestamp}&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`;
+    (async function requestApi() {
+      await axios({
+        baseURL: refURL.current,
       }).then((promise) => {
         const responseImageURL =
           promise.data.data.results[0].thumbnail.path +
@@ -30,11 +30,10 @@ function CardAppearances(props) {
         setUrlIMG(responseImageURL);
       });
     })();
-  }, [resourceURI]);
-  console.log(urlIMG);
+  }, []);
   return (
-    <Container>
-      <Content>
+    <Container {...props}>
+      <Content {...props}>
         <div className="bulr-backgroundImage" />
         {urlIMG && name && (
           <div className="thumb-img">
