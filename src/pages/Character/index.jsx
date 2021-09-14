@@ -76,20 +76,14 @@ function Character(props) {
             </section>
             <section className="pops-up">
               <h1>POPS UP</h1>
-              {comics && events && series && stories && (
-                <>
-                  <SectionAppearances data={comics} title="in the comics" />
-                  <SectionAppearances
-                    data={events}
-                    title="in the events"
-                    plus
-                  />
-                  <SectionAppearances
-                    data={series}
-                    title="in the stories"
-                    plus
-                  />
-                </>
+              {comics.length !== 0 && (
+                <SectionAppearances data={comics} title="in the comics" />
+              )}
+              {events.length !== 0 && (
+                <SectionAppearances data={events} title="in the events" plus />
+              )}
+              {series.length !== 0 && (
+                <SectionAppearances data={series} title="in the stories" plus />
               )}
             </section>
           </>
