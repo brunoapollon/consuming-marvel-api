@@ -121,8 +121,12 @@ function Home() {
                 />
               )}
             </div>
-            <SectionImages data={characters} title="CHARACTERS" />
-            <SectionEvents data={events} title="EVENTS" />
+            <SectionImages
+              data={characters}
+              nextPath="character"
+              title="CHARACTERS"
+            />
+            <SectionEvents data={events} nextPath="event" title="EVENTS" />
             <SectionImages data={comics} title="COMICS" comics />
           </>
         )}

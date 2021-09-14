@@ -12,12 +12,12 @@ function SectionImages(props) {
       <h1>{props.title}</h1>
       <ScrollContainer className="scroll-container">
         {dataImages.length !== 0 &&
-          dataImages.map((image) => {
+          dataImages.map((element) => {
             return (
               <CardImage
-                img={image.thumbnail.path + "." + image.thumbnail.extension}
-                name={image.name}
-                idCharacter={image.id}
+                img={element.thumbnail.path + "." + element.thumbnail.extension}
+                name={element.name}
+                id_element={element.id}
                 {...props}
               />
             );

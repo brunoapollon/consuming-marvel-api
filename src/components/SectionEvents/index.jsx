@@ -13,10 +13,12 @@ function SectionEvents(props) {
       <Content>
         <ScrollContainer className="scroll-container">
           {data.length !== 0 &&
-            data.map((events) => {
+            data.map((event) => {
               return (
                 <CardImage
-                  img={events.thumbnail.path + "." + events.thumbnail.extension}
+                  img={event.thumbnail.path + "." + event.thumbnail.extension}
+                  id_element={event.id}
+                  {...props}
                 />
               );
             })}
