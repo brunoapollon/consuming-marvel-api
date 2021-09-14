@@ -82,8 +82,15 @@ function Character(props) {
               {events.length !== 0 && (
                 <SectionAppearances data={events} title="in the events" plus />
               )}
+              {stories.length !== 0 && (
+                <SectionAppearances
+                  data={stories}
+                  title="in the stories"
+                  plus
+                />
+              )}
               {series.length !== 0 && (
-                <SectionAppearances data={series} title="in the stories" plus />
+                <SectionAppearances data={series} title="in the series" plus />
               )}
             </section>
           </>
