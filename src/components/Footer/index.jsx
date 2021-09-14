@@ -16,13 +16,23 @@ function Footer() {
             </a>
           </li>
           <li>
+            <a href="/characters">
+              <span>characters</span>
+            </a>
+          </li>
+          <li>
             <a href="/comics">
               <span>comics</span>
             </a>
           </li>
           <li>
-            <a href="/characters">
-              <span>characters</span>
+            <a href="/events">
+              <span>events</span>
+            </a>
+          </li>
+          <li>
+            <a href="/about">
+              <span>about</span>
             </a>
           </li>
         </ul>
