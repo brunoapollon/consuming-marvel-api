@@ -9,7 +9,7 @@ function SectionAppearances(props) {
   const { data, title } = props;
 
   return (
-    <Container>
+    <Container {...props}>
       <h1>{title}</h1>
       <ScrollContainer className="scroll-container">
         {data.map((element, index) => (

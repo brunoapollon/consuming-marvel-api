@@ -24,8 +24,9 @@ export const Content = styled.div`
     > span {
       margin-top: 10px;
       color: #fff;
-      font-size: 12x;
+      font-size: 16px;
       font-weight: 300;
+      align-self: flex-start;
     }
   }
   img {
