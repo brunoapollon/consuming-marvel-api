@@ -6,7 +6,6 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  max-width: 1024px;
   height: 100%;
   margin: 0 auto;
   .title-page {
@@ -64,16 +63,34 @@ export const Content = styled.div`
       color: #fff;
       font-size: 24px;
       text-align: justify;
+      margin-left: 100px;
+      margin-right: 100px;
     }
     > h1 {
       font-size: 72px;
       color: #fff;
     }
-  }
-  .section-characters {
-    > h1 {
+    > a {
+      align-self: flex-end;
+      margin-right: 100px;
+      text-decoration: none;
       color: #fff;
-      font-size: 64px;
+    }
+    .section-characters {
+      > h1 {
+        color: #fff;
+        font-size: 64px;
+      }
+    }
+    .next-event {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 200px;
+      > h3 {
+        color: #fff;
+        margin-right: 10px;
+      }
     }
   }
 `;

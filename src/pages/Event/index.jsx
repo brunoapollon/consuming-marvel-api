@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 import CryptoJS from "crypto-js";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import SectionAppearances from "../../components/SectionAppearances";
+import { AiOutlineRight } from "react-icons/ai";
 
 import api from "../../services/api";
 
@@ -16,6 +17,8 @@ function Event(props) {
   const [event, setEvent] = useState();
   const [urlImage, setUrlImage] = useState();
   const [characters, setCharacters] = useState();
+  const [comics, setComics] = useState();
+  const [nextId, setNextId] = useState();
 
   useEffect(() => {
     (async function requestApi() {
@@ -38,9 +41,14 @@ function Event(props) {
               promise.data.data.results[0].thumbnail.extension
           );
           setCharacters(promise.data.data.results[0].characters.items);
+          setComics(promise.data.data.results[0].comics.items);
+          const splitNextUrl =
+            promise.data.data.results[0].next.resourceURI.split("/");
+          setNextId(splitNextUrl[splitNextUrl.length - 1]);
         });
     })();
   }, [event_id]);
+
   return (
     <Container>
       {event && urlImage && (
@@ -64,6 +72,21 @@ function Event(props) {
                 title="characters"
                 className="section-characters"
               />
+            )}
+            {comics && (
+              <SectionAppearances
+                data={comics}
+                title="comics"
+                className="section-characters"
+              />
+            )}
+            {nextId && (
+              <a href={`/event/${nextId}`}>
+                <div className="next-event">
+                  <h3>{event.next.name}</h3>
+                  <AiOutlineRight size={25} />
+                </div>
+              </a>
             )}
             <Footer />
           </div>
