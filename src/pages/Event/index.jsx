@@ -33,7 +33,6 @@ function Event(props) {
           `events/${event_id}?ts=${timestamp}&orderBy=name&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
         )
         .then((promise) => {
-          console.log(promise.data.data.results[0]);
           setEvent(promise.data.data.results[0]);
           setUrlImage(
             promise.data.data.results[0].thumbnail.path +
