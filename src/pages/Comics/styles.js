@@ -8,4 +8,36 @@ export const Content = styled.div`
   max-width: 1024px;
   margin: 0 auto;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  .title {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    > h1 {
+      font-size: 100px;
+      color: #fff;
+      margin: 0;
+    }
+    > div {
+      width: 455px;
+      height: 80px;
+      background-color: #ed1d24;
+      border-radius: 20px;
+      display: flex;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      margin-top: 80px;
+      > span {
+        font-size: 56px;
+        color: #fff;
+      }
+    }
+  }
 `;
