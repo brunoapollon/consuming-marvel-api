@@ -1,54 +1,44 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import CryptoJS from "crypto-js";
 
 import api from "../../services/api";
 
 import Header from "../../components/Header";
+import SectionAppearances from "../../components/SectionAppearances";
 
 import { Container, Content } from "./styles";
 
 function Home() {
   const [comics, setComics] = useState([]);
 
-  const filterIorder = useCallback(
-    (comicsArray, letter) => {
-      const arrayByLetter = comicsArray.filter(
-        (comicElement) => comicElement.title[0] === letter
-      );
-      if (arrayByLetter.length !== 0) setComics([...comics, arrayByLetter]);
-      console.log(comics);
-    },
-    [comics]
-  );
+  const alphabet = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "H",
+    "I",
+    "J",
+    "K",
+    "L",
+    "M",
+    "O",
+    "P",
+    "Q",
+    "R",
+    "S",
+    "T",
+    "U",
+    "V",
+    "W",
+    "X",
+    "Y",
+    "Z",
+  ];
 
   useEffect(() => {
-    const alphabet = [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z",
-    ];
-
     (async function requestApi() {
       const timestamp = Number(new Date());
       const hash = CryptoJS.MD5(
@@ -69,9 +59,7 @@ function Home() {
               characters.thumbnail.extension === "jpg"
             );
           });
-          alphabet.forEach((letterElement) => {
-            filterIorder(arrayFilter, letterElement);
-          });
+          setComics(arrayFilter);
         });
     })();
   }, []);
@@ -85,6 +73,17 @@ function Home() {
             <span>A - Z</span>
           </div>
         </section>
+        {comics.length !== 0 &&
+          alphabet.map((letter, index) => {
+            const dataComics = comics.filter(
+              (comic) => comic.title[0] === letter
+            );
+            return dataComics.length !== 0 ? (
+              <SectionAppearances key={index} data={dataComics} title="" />
+            ) : (
+              ""
+            );
+          })}
       </Content>
     </Container>
   );

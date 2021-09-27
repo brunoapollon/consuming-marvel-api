@@ -24,7 +24,7 @@ export const Content = styled.div`
     > span {
       margin-top: 10px;
       color: #fff;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 300;
       align-self: flex-start;
     }

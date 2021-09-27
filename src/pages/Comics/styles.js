@@ -33,7 +33,7 @@ export const Content = styled.div`
       text-align: center;
       justify-content: center;
       align-items: center;
-      margin-top: 80px;
+      margin: 80px 0;
       > span {
         font-size: 56px;
         color: #fff;
