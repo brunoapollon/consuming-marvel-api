@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Comics from "../pages/Comics";
 import Character from "../pages/Character";
 import Event from "../pages/Event";
+import Events from "../pages/Events";
 
 function redirectoToHome() {
   return <Redirect to="/home" />;
@@ -17,6 +18,7 @@ export default function Routes() {
       <Route path="/comics" component={Comics} />
       <Route path="/character/:character_id" component={Character} />
       <Route path="/event/:event_id" component={Event} />
+      <Route path="/events" component={Events} />
     </Switch>
   );
 }
