@@ -40,4 +40,11 @@ export const Content = styled.div`
       }
     }
   }
+  .loading {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;

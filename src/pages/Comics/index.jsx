@@ -5,11 +5,13 @@ import api from "../../services/api";
 
 import Header from "../../components/Header";
 import SectionAppearances from "../../components/SectionAppearances";
+import ReactLoading from "react-loading";
 
 import { Container, Content } from "./styles";
 
 function Home() {
   const [comics, setComics] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const alphabet = [
     "A",
@@ -62,18 +64,34 @@ function Home() {
           setComics(arrayFilter);
         });
     })();
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
   }, []);
   return (
     <Container>
       <Content>
         <Header />
-        <section className="title">
-          <h1>COMICS</h1>
-          <div>
-            <span>A - Z</span>
+        {loading && (
+          <div className="loading">
+            <ReactLoading
+              type="spin"
+              color="#ed1d24"
+              height={"20%"}
+              width={"20%"}
+            />
           </div>
-        </section>
-        {comics.length !== 0 &&
+        )}
+        {!loading && (
+          <section className="title">
+            <h1>COMICS</h1>
+            <div>
+              <span>A - Z</span>
+            </div>
+          </section>
+        )}
+        {!loading &&
+          comics.length !== 0 &&
           alphabet.map((letter, index) => {
             const dataComics = comics.filter(
               (comic) => comic.title[0] === letter
