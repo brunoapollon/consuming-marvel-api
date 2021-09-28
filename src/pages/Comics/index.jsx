@@ -4,6 +4,7 @@ import CryptoJS from "crypto-js";
 import api from "../../services/api";
 
 import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 import SectionAppearances from "../../components/SectionAppearances";
 import ReactLoading from "react-loading";
 
@@ -102,6 +103,7 @@ function Home() {
               ""
             );
           })}
+        {!loading && <Footer />}
       </Content>
     </Container>
   );

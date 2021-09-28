@@ -10,7 +10,7 @@ import ReactLoading from "react-loading";
 
 import { Container, Content } from "./styles";
 
-function Events() {
+function Characters() {
   const [comics, setComics] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -51,7 +51,7 @@ function Events() {
       );
       await api
         .get(
-          `events?ts=${timestamp}&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
+          `characters?ts=${timestamp}&orderBy=name&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
         )
         .then((promise) => {
           const arrayFilter = promise.data.data.results.filter((characters) => {
@@ -85,7 +85,7 @@ function Events() {
         )}
         {!loading && (
           <section className="title">
-            <h1>EVENTS</h1>
+            <h1>CHARACTERS</h1>
             <div>
               <span>A - Z</span>
             </div>
@@ -95,7 +95,7 @@ function Events() {
           comics.length !== 0 &&
           alphabet.map((letter, index) => {
             const dataComics = comics.filter(
-              (comic) => comic.title[0] === letter
+              (comic) => comic.name[0] === letter
             );
             return dataComics.length !== 0 ? (
               <SectionAppearances key={index} data={dataComics} title="" />
@@ -109,4 +109,4 @@ function Events() {
   );
 }
 
-export default Events;
+export default Characters;
