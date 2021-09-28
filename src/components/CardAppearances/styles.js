@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.a`
   width: ${(props) => (props.plus ? "680px" : "300px")};
   height: ${(props) => (props.plus ? "600px" : "400px")};
   border-radius: 10px;
   background: #4f4a4a;
   padding: 30px 40px 0;
   box-sizing: border-box;
-  & + div {
+  text-decoration: none;
+  & + a {
     margin-left: 100px;
   }
 `;

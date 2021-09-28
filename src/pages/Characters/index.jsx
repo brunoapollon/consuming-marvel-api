@@ -98,7 +98,12 @@ function Characters() {
               (comic) => comic.name[0] === letter
             );
             return dataComics.length !== 0 ? (
-              <SectionAppearances key={index} data={dataComics} title="" />
+              <SectionAppearances
+                key={index}
+                data={dataComics}
+                title=""
+                pathCard="character"
+              />
             ) : (
               ""
             );

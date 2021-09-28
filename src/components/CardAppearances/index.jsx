@@ -5,7 +5,7 @@ import CryptoJS from "crypto-js";
 import { Container, Content } from "./styles";
 
 function CardAppearances(props) {
-  const { resourceURI, name } = props;
+  const { resourceURI, name, url } = props;
 
   const refURL = useRef(resourceURI);
 
@@ -34,7 +34,7 @@ function CardAppearances(props) {
     })();
   }, []);
   return urlIMG && name ? (
-    <Container {...props}>
+    <Container {...props} href={url}>
       <Content {...props}>
         <div className="bulr-backgroundImage" />
         <div className="thumb-img">

@@ -6,7 +6,7 @@ import { Container } from "./styles";
 import CardAppearances from "../CardAppearances";
 
 function SectionAppearances(props) {
-  const { data, title } = props;
+  const { data, title, pathCard } = props;
 
   console.log(data);
 
@@ -14,14 +14,16 @@ function SectionAppearances(props) {
     <Container {...props}>
       {title !== "" && <h1>{title}</h1>}
       <ScrollContainer className="scroll-container">
-        {data.map((element, index) => (
-          <CardAppearances
-            key={index}
-            resourceURI={element.resourceURI}
-            name={element.name ? element.name : element.title}
-            {...props}
-          />
-        ))}
+        {data.length !== 0 &&
+          data.map((element, index) => (
+            <CardAppearances
+              key={index}
+              resourceURI={element.resourceURI}
+              name={element.name ? element.name : element.title}
+              url={pathCard + "/" + element.id}
+              {...props}
+            />
+          ))}
       </ScrollContainer>
     </Container>
   );
