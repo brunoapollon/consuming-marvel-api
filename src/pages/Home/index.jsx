@@ -127,7 +127,12 @@ function Home() {
               title="CHARACTERS"
             />
             <SectionEvents data={events} nextPath="event" title="EVENTS" />
-            <SectionImages data={comics} title="COMICS" comics />
+            <SectionImages
+              data={comics}
+              nextPath="comic"
+              title="COMICS"
+              comics
+            />
           </>
         )}
         {!loading && <Footer />}
