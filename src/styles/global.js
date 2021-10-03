@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+*{
+  box-sizing: border-box;
+}
   html{
     height: 100vh;
     margin: 0;
@@ -11,7 +14,8 @@ export default createGlobalStyle`
     background-color:#171616;
     margin: 0;
     padding: 0;
-    height: 100%;
+    padding-top: 80px;
+    height: 100vh;
     &::-webkit-scrollbar {
       width: 10px;
     }
