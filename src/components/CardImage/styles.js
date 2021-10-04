@@ -5,9 +5,10 @@ export const Container = styled.div`
   height: 100%;
   position: relative;
   box-sizing: border-box;
+  margin-left: 50px;
   img {
     width: ${(props) => (props.comics ? "200px" : "400px")};
-    height: 100%;
+    height: 300px;
     -webkit-mask-image: linear-gradient(to top, transparent 0, black 50%);
     mask-image: linear-gradient(to top, transparent 0, black 50%);
     border-radius: 10px;
