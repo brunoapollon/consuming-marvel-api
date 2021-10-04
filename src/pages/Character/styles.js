@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100%;
 `;
 export const Content = styled.div`
-  width: 1024px;
+  max-width: 1024px;
   height: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -61,6 +61,42 @@ export const Content = styled.div`
     margin-bottom: 200px;
     > h1 {
       font-size: 60px;
+    }
+  }
+  @media (max-width: 715px) {
+    h1 {
+      font-size: 24px;
+      color: #fff;
+    }
+    .title-page {
+      max-width: 300px;
+      height: 80px;
+      > h1 {
+        font-size: 32px;
+      }
+    }
+    .about-character {
+      margin-bottom: 0;
+      > img {
+        width: 200px;
+        height: 100px;
+      }
+      h1 {
+        margin: 0;
+      }
+      .description {
+        font-size: 12px;
+        text-align: justify;
+        color: #fff;
+      }
+    }
+    .card-character {
+      width: 100%;
+    }
+    .pops-up {
+      > h1 {
+        font-size: 30px;
+      }
     }
   }
 `;
