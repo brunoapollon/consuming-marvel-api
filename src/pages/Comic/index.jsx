@@ -44,7 +44,7 @@ function Comic(props) {
             />
             {comic.description && (
               <Description>
-                <p>comic.description</p>
+                <p>{comic.description}</p>
               </Description>
             )}
             <Table>

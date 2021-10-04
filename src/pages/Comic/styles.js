@@ -6,7 +6,7 @@ export const Container = styled.div`
 `;
 export const Content = styled.div`
   height: 100%;
-  width: 1024px;
+  max-width: 1024px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -27,12 +27,16 @@ export const Title = styled.h1`
 `;
 
 export const Image = styled.img`
-  width: 600px;
+  max-width: 600px;
   margin: 20px 0;
+  @media (max-width: 715px) {
+    max-width: 300px;
+  }
 `;
 
 export const Description = styled.div`
-  width: 600px;
+  max-width: 600px;
+  margin-bottom: 80px;
   > p {
     color: #fff;
     font-size: 16px;
@@ -41,9 +45,9 @@ export const Description = styled.div`
 `;
 
 export const Table = styled.table`
-  width: 600px;
+  max-width: 600px;
   color: #fff;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
   th {
     height: 50px;
     width: 50%;
