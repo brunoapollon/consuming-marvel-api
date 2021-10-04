@@ -93,4 +93,49 @@ export const Content = styled.div`
       }
     }
   }
+  @media (max-width: 715px) {
+    .title-page {
+      max-width: 200px;
+      height: 80px;
+      > h1 {
+        font-size: 32px;
+      }
+    }
+  }
+  .cover-page {
+    > div {
+      background: #ed1d24;
+      max-width: 300px;
+    }
+    > div,
+    h3 {
+      font-size: 32px;
+    }
+  }
+  .after-cover {
+    > p {
+      font-size: 24px;
+      text-align: justify;
+      margin: 0 auto;
+    }
+    > h1 {
+      font-size: 64px;
+    }
+    .section-characters {
+      > h1 {
+        color: #fff;
+        font-size: 32px;
+      }
+    }
+    .next-event {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 200px;
+      > h3 {
+        color: #fff;
+        margin-right: 10px;
+      }
+    }
+  }
 `;
