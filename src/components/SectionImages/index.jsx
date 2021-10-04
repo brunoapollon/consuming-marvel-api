@@ -8,13 +8,14 @@ import { Container } from "./styles";
 function SectionImages(props) {
   const dataImages = props.data;
   return (
-    <Container>
+    <Container {...props}>
       <h1>{props.title}</h1>
       <ScrollContainer className="scroll-container">
         {dataImages.length !== 0 &&
           dataImages.map((element) => {
             return (
               <CardImage
+                key={element.id}
                 img={element.thumbnail.path + "." + element.thumbnail.extension}
                 name={element.name}
                 id_element={element.id}

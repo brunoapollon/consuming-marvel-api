@@ -98,12 +98,14 @@ function Home() {
               (comic) => comic.title[0] === letter
             );
             return dataComics.length !== 0 ? (
-              <SectionAppearances
-                key={index}
-                data={dataComics}
-                title=""
-                pathCard="comic"
-              />
+              <div className="section-cards">
+                <SectionAppearances
+                  key={index}
+                  data={dataComics}
+                  title=""
+                  pathCard="comic"
+                />
+              </div>
             ) : (
               ""
             );

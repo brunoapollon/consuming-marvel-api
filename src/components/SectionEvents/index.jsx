@@ -16,6 +16,7 @@ function SectionEvents(props) {
             data.map((event) => {
               return (
                 <CardImage
+                  key={event.id}
                   img={event.thumbnail.path + "." + event.thumbnail.extension}
                   id_element={event.id}
                   {...props}

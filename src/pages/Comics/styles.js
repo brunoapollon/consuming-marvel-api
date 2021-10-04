@@ -7,6 +7,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   margin: 0 auto;
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -32,7 +33,7 @@ export const Content = styled.div`
       text-align: center;
       justify-content: center;
       align-items: center;
-      margin: 80px 0;
+      margin: 50px 0;
       > span {
         font-size: 56px;
         color: #fff;
@@ -45,5 +46,32 @@ export const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .section-cards {
+    width: 100%;
+    height: max-content;
+    overflow: hidden;
+    padding-left: 50px;
+    margin-bottom: 200px;
+  }
+  @media (max-width: 1024px) {
+    .title {
+      > h1 {
+        font-size: 30px;
+        color: #fff;
+        margin: 0;
+      }
+      > div {
+        width: 224px;
+        height: 40px;
+        > span {
+          font-size: 24px;
+          color: #fff;
+        }
+      }
+    }
+    .section-cards {
+      margin-bottom: 100px;
+    }
   }
 `;

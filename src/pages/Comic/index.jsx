@@ -53,8 +53,8 @@ function Comic(props) {
                   <th>Name</th>
                   <th>Role</th>
                 </tr>
-                {comic.creators.items.map((element) => (
-                  <tr>
+                {comic.creators.items.map((element, index) => (
+                  <tr key={index}>
                     <th>{element.name}</th>
                     <th>{element.role}</th>
                   </tr>

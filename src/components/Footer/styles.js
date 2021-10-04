@@ -13,16 +13,18 @@ export const Container = styled.div`
   }
   > nav {
     margin: 30px;
+    width: 100%;
   }
   > nav,
   ul {
     list-style: none;
+    margin: 15px auto;
     display: flex;
+    padding: 0;
     > li {
       > a {
         color: #fff;
         text-decoration: none;
-        font-family: "Montserrat", sans-serif;
         font-size: 24px;
         padding: 5px;
         border-radius: 25px;
@@ -35,6 +37,9 @@ export const Container = styled.div`
       }
       & + li {
         margin-left: 25px;
+        @media (max-width: 1024px) {
+          margin-left: 10px;
+        }
       }
     }
   }
@@ -62,6 +67,11 @@ export const Container = styled.div`
       a + a {
         margin-left: 10px;
       }
+      @media (max-width: 715px) {
+        > span {
+          display: none;
+        }
+      }
     }
   }
   .circle {
@@ -74,12 +84,10 @@ export const Container = styled.div`
   span {
     color: #fff;
     font-size: 14px;
-    font-family: "Montserrat", sans-serif;
     > a {
       text-decoration: none;
       color: #fff;
       font-size: 14px;
-      font-family: "Montserrat", sans-serif;
     }
   }
 `;

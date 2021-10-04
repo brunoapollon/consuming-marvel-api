@@ -32,7 +32,7 @@ export const Content = styled.div`
       text-align: center;
       justify-content: center;
       align-items: center;
-      margin: 80px 0;
+      margin: 50px 0;
       > span {
         font-size: 56px;
         color: #fff;
@@ -45,5 +45,22 @@ export const Content = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  @media (max-width: 1024px) {
+    .title {
+      > h1 {
+        font-size: 30px;
+        color: #fff;
+        margin: 0;
+      }
+      > div {
+        width: 224px;
+        height: 40px;
+        > span {
+          font-size: 24px;
+          color: #fff;
+        }
+      }
+    }
   }
 `;

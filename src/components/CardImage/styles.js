@@ -24,4 +24,10 @@ export const Container = styled.div`
   & + div {
     margin-left: 50px;
   }
+  @media (max-width: 1024px) {
+    img {
+      width: ${(props) => (props.comics ? "200px" : "200px")};
+      height: ${(props) => (props.comics ? "300px" : "100%")};
+    }
+  }
 `;

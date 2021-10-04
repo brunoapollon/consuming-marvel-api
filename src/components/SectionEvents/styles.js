@@ -10,6 +10,13 @@ export const Container = styled.div`
     color: #fff;
     margin-left: 50px;
   }
+  @media (max-width: 1024px) {
+    margin-bottom: 100px;
+
+    h1 {
+      font-size: 24px;
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -27,6 +34,16 @@ export const Content = styled.div`
       -webkit-mask-image: none;
       mask-image: none;
       border-radius: 0;
+    }
+  }
+  @media (max-width: 1024px) {
+    padding: 70px 0;
+    .scroll-container {
+      height: 300px;
+      img {
+        height: 100%;
+        width: 290px;
+      }
     }
   }
 `;

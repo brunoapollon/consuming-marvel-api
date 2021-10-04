@@ -3,10 +3,8 @@ import { animated } from "react-spring";
 
 export const Container = styled(animated.div)`
   position: absolute;
-  max-width: 1024px;
-  width: 1024px;
-  max-height: 600px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
   will-change: transform;
   user-select: none;
 `;
