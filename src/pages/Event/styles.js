@@ -63,8 +63,7 @@ export const Content = styled.div`
       color: #fff;
       font-size: 24px;
       text-align: justify;
-      margin-left: 100px;
-      margin-right: 100px;
+      margin: 0 100px;
     }
     > h1 {
       font-size: 72px;
