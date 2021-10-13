@@ -1,5 +1,5 @@
 <h1 align="center">
-consuming marvel api
+Consuming Marvel API
 </h1>
 <p align="center">
 <a href="#-tecnologias">Tecnologias</a>   |   
@@ -22,12 +22,12 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## Projeto
 
-Esse projeto é apenas uma aplicação de conhecimentos adquiridos em meus estudos, com o único intuito de testar meu aprendizado! Eu escolhi a api da marvel pra consumir e deixar visualmente agradável com a ajuda da designer ux `[Ariadna Cavalcante](https://www.linkedin.com/in/ariadna-cavalcante/)`.
+Esse projeto é apenas uma aplicação de conhecimentos adquiridos em meus estudos, com o único intuito de testar meu aprendizado! Eu escolhi a api da marvel pra consumir e deixar visualmente agradável com a ajuda da designer ux [`Ariadna Cavalcante`](https://www.linkedin.com/in/ariadna-cavalcante/).
 
 ## Observações
 
 - Para instalar todas as dependências utilizadas no projeto basta rodar o comando `yarn`
-- O servidor pode ser iniciado com `yarn start`, onde se tem acesso pelo `[localhost:3000](http://localhost:3000/)` no navegador.
+- O servidor pode ser iniciado com `yarn start`, onde se tem acesso pelo [`localhost:3000`](http://localhost:3000/) no navegador.
 - Nesse projeto foi utilizado variáveis ambientes que estão descritas no .env.example.
 
 ---
