@@ -14,34 +14,33 @@ function Home() {
   const [comics, setComics] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const alphabet = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
-
   useEffect(() => {
+    const alphabet = [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+    ];
     (async function requestApi() {
       const timestamp = Number(new Date());
       const hash = CryptoJS.MD5(
@@ -62,7 +61,14 @@ function Home() {
               characters.thumbnail.extension === "jpg"
             );
           });
-          setComics(arrayFilter);
+          const arrayFilterByAlphabet = [];
+          alphabet.forEach((letter) => {
+            const dataComics = arrayFilter.filter(
+              (comic) => comic.title[0] === letter
+            );
+            if (dataComics.length !== 0) arrayFilterByAlphabet.push(dataComics);
+          });
+          setComics(arrayFilterByAlphabet);
         });
     })();
     setLoading(false);
@@ -91,21 +97,16 @@ function Home() {
         )}
         {!loading &&
           comics.length !== 0 &&
-          alphabet.map((letter, index) => {
-            const dataComics = comics.filter(
-              (comic) => comic.title[0] === letter
-            );
-            return dataComics.length !== 0 ? (
+          comics.map((comicsArray, index) => {
+            return (
               <div className="section-cards">
                 <SectionAppearances
                   key={index}
-                  data={dataComics}
+                  data={comicsArray}
                   title=""
                   pathCard="comic"
                 />
               </div>
-            ) : (
-              ""
             );
           })}
         {!loading && <Footer />}

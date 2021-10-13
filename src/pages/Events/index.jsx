@@ -11,37 +11,36 @@ import ReactLoading from "react-loading";
 import { Container, Content } from "./styles";
 
 function Events() {
-  const [comics, setComics] = useState([]);
+  const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const alphabet = [
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
-
   useEffect(() => {
+    const alphabet = [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "H",
+      "I",
+      "J",
+      "K",
+      "L",
+      "M",
+      "O",
+      "P",
+      "Q",
+      "R",
+      "S",
+      "T",
+      "U",
+      "V",
+      "W",
+      "X",
+      "Y",
+      "Z",
+    ];
     (async function requestApi() {
       const timestamp = Number(new Date());
       const hash = CryptoJS.MD5(
@@ -62,7 +61,14 @@ function Events() {
               characters.thumbnail.extension === "jpg"
             );
           });
-          setComics(arrayFilter);
+          const arrayFilterByAlphabet = [];
+          alphabet.forEach((letter) => {
+            const dataEvents = arrayFilter.filter(
+              (event) => event.title[0] === letter
+            );
+            if (dataEvents.length !== 0) arrayFilterByAlphabet.push(dataEvents);
+          });
+          setEvents(arrayFilterByAlphabet);
         });
     })();
     setLoading(false);
@@ -90,20 +96,15 @@ function Events() {
           </section>
         )}
         {!loading &&
-          comics.length !== 0 &&
-          alphabet.map((letter, index) => {
-            const dataComics = comics.filter(
-              (comic) => comic.title[0] === letter
-            );
-            return dataComics.length !== 0 ? (
+          events.length !== 0 &&
+          events.map((eventsArray, index) => {
+            return (
               <SectionAppearances
                 key={index}
-                data={dataComics}
+                data={eventsArray}
                 title=""
                 pathCard="event"
               />
-            ) : (
-              ""
             );
           })}
         {!loading && <Footer />}
