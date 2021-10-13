@@ -62,10 +62,12 @@ function Character(props) {
                       }
                       alt="character"
                     />
-                    <section className="description">
-                      <h1>DESCRIPTION</h1>
-                      <p>{character.description}</p>
-                    </section>
+                    {character.description && (
+                      <section className="description">
+                        <h1>DESCRIPTION</h1>
+                        <p>{character.description}</p>
+                      </section>
+                    )}
                   </div>
                 </>
               )}
