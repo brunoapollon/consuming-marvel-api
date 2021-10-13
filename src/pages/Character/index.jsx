@@ -12,10 +12,9 @@ import SectionAppearances from "../../components/SectionAppearances";
 
 function Character(props) {
   const [character, setCharacter] = useState();
-  const [comics, setComics] = useState();
-  const [events, setEvents] = useState();
-  const [series, setSeries] = useState();
-  const [stories, setStories] = useState();
+  const [comics, setComics] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [series, setSeries] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { character_id } = props.match.params;
@@ -37,13 +36,10 @@ function Character(props) {
           setComics(promise.data.data.results[0].comics.items);
           setEvents(promise.data.data.results[0].events.items);
           setSeries(promise.data.data.results[0].series.items);
-          setStories(promise.data.data.results[0].stories.items);
         });
     })();
-  }, [character_id]);
-  setInterval(() => {
     setLoading(false);
-  }, 5000);
+  }, [character_id]);
   return (
     <Container>
       <Content>
@@ -88,14 +84,6 @@ function Character(props) {
                   data={events}
                   title="in the events"
                   pathCard="event"
-                  plus
-                />
-              )}
-              {stories.length !== 0 && (
-                <SectionAppearances
-                  data={stories}
-                  title="in the stories"
-                  pathCard="story"
                   plus
                 />
               )}

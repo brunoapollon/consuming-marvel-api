@@ -65,9 +65,7 @@ function Home() {
           setComics(arrayFilter);
         });
     })();
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
+    setLoading(false);
   }, []);
   return (
     <Container>

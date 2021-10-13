@@ -9,7 +9,7 @@ function CardAppearances(props) {
 
   const refURL = useRef(resourceURI);
 
-  const [urlIMG, setUrlIMG] = useState();
+  const [urlIMG, setUrlIMG] = useState(null);
 
   useEffect(() => {
     const timestamp = Number(new Date());
@@ -23,14 +23,16 @@ function CardAppearances(props) {
       await axios({
         baseURL: refURL.current,
       }).then((promise) => {
-        console.log(promise.data.data.results[0]);
-        const responseImageURL =
-          promise.data.data.results[0].thumbnail?.path +
-          "." +
-          promise.data.data.results[0].thumbnail?.extension;
-        const urlImage = promise.data.data.results[0].thumbnail.path.split("/");
-        const nameImage = urlImage[urlImage.length - 1];
-        if (nameImage !== "image_not_available") setUrlIMG(responseImageURL);
+        if (promise.data.data.results[0].thumbnail) {
+          const responseImageURL =
+            promise.data.data.results[0].thumbnail?.path +
+            "." +
+            promise.data.data.results[0].thumbnail?.extension;
+          const urlImage =
+            promise.data.data.results[0].thumbnail.path.split("/");
+          const nameImage = urlImage[urlImage.length - 1];
+          if (nameImage !== "image_not_available") setUrlIMG(responseImageURL);
+        }
       });
     })();
   }, []);
