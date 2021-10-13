@@ -7,6 +7,7 @@ import CardAppearances from "../CardAppearances";
 
 function SectionAppearances(props) {
   const { data, title, pathCard } = props;
+  console.log(data);
   return (
     <Container {...props}>
       {title !== "" && <h1>{title}</h1>}

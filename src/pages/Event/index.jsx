@@ -18,7 +18,7 @@ function Event(props) {
   const [urlImage, setUrlImage] = useState();
   const [characters, setCharacters] = useState();
   const [comics, setComics] = useState();
-  const [nextId, setNextId] = useState();
+  const [nextId, setNextId] = useState(null);
 
   useEffect(() => {
     (async function requestApi() {
@@ -41,9 +41,11 @@ function Event(props) {
           );
           setCharacters(promise.data.data.results[0].characters.items);
           setComics(promise.data.data.results[0].comics.items);
-          const splitNextUrl =
-            promise.data.data.results[0].next.resourceURI.split("/");
-          setNextId(splitNextUrl[splitNextUrl.length - 1]);
+          if (promise.data.data.results[0].next) {
+            const splitNextUrl =
+              promise.data.data.results[0].next.resourceURI.split("/");
+            setNextId(splitNextUrl[splitNextUrl.length - 1]);
+          }
         });
     })();
   }, [event_id]);
