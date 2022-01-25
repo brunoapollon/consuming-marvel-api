@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CryptoJS from "crypto-js";
 import ReactLoading from "react-loading";
 
 import { Container, Content } from "./styles";
@@ -9,6 +8,8 @@ import api from "../../services/api";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import SectionAppearances from "../../components/SectionAppearances";
+
+import { hash, timestamp } from "../../shared/queryValues";
 
 function Character(props) {
   const [character, setCharacter] = useState();
@@ -21,12 +22,6 @@ function Character(props) {
 
   useEffect(() => {
     (async function requestApi() {
-      const timestamp = Number(new Date());
-      const hash = CryptoJS.MD5(
-        timestamp +
-          process.env.REACT_APP_KEY_PRIVATE_MARVEL_API +
-          process.env.REACT_APP_KEY_PUBLIC_MARVEL_API
-      );
       await api
         .get(
           `characters/${character_id}?ts=${timestamp}&orderBy=name&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`

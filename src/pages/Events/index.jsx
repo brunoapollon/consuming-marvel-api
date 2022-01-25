@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import CryptoJS from "crypto-js";
 
 import api from "../../services/api";
 
@@ -9,6 +8,7 @@ import SectionAppearances from "../../components/SectionAppearances";
 import ReactLoading from "react-loading";
 
 import { alphabet } from "../../shared/alphabet";
+import { hash, timestamp } from "../../shared/queryValues";
 
 import { Container, Content } from "./styles";
 
@@ -18,12 +18,6 @@ function Events() {
 
   useEffect(() => {
     (async function requestApi() {
-      const timestamp = Number(new Date());
-      const hash = CryptoJS.MD5(
-        timestamp +
-          process.env.REACT_APP_KEY_PRIVATE_MARVEL_API +
-          process.env.REACT_APP_KEY_PUBLIC_MARVEL_API
-      );
       await api
         .get(
           `events?ts=${timestamp}&limit=100&apikey=${process.env.REACT_APP_KEY_PUBLIC_MARVEL_API}&hash=${hash}`
