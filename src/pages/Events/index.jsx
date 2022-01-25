@@ -8,6 +8,8 @@ import Footer from "../../components/Footer";
 import SectionAppearances from "../../components/SectionAppearances";
 import ReactLoading from "react-loading";
 
+import { alphabet } from "../../shared/alphabet";
+
 import { Container, Content } from "./styles";
 
 function Events() {
@@ -15,32 +17,6 @@ function Events() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const alphabet = [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z",
-    ];
     (async function requestApi() {
       const timestamp = Number(new Date());
       const hash = CryptoJS.MD5(

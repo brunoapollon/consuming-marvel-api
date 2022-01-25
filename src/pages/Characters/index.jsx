@@ -8,6 +8,8 @@ import Footer from "../../components/Footer";
 import SectionAppearances from "../../components/SectionAppearances";
 import ReactLoading from "react-loading";
 
+import { alphabet } from "../../shared/alphabet";
+
 import { Container, Content } from "./styles";
 
 function Characters() {
@@ -15,32 +17,6 @@ function Characters() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const alphabet = [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F",
-      "H",
-      "I",
-      "J",
-      "K",
-      "L",
-      "M",
-      "O",
-      "P",
-      "Q",
-      "R",
-      "S",
-      "T",
-      "U",
-      "V",
-      "W",
-      "X",
-      "Y",
-      "Z",
-    ];
     (async function requestApi() {
       const timestamp = Number(new Date());
       const hash = CryptoJS.MD5(
@@ -97,11 +73,11 @@ function Characters() {
         )}
         {!loading &&
           characters.length !== 0 &&
-          characters.map((comics, index) => {
+          characters.map((charactersArray, index) => {
             return (
               <SectionAppearances
                 key={index}
-                data={comics}
+                data={charactersArray}
                 title=""
                 pathCard="character"
               />
